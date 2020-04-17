@@ -38,35 +38,21 @@ public class DocumentStoreImpl implements DocumentStore {
     public int putDocument(InputStream input, URI uri, DocumentFormat format)
     {
         int returningHashCode = 0;
-        if(uri == null || format == null)
-        {
-            throw new IllegalArgumentException();
-        } else 
-        {
-
-            try {
+        if(uri == null || format == null){throw new IllegalArgumentException();}
+        else {
+            try 
+            {
                 byte[] bytesArray = convertISToByteArray(input);
-                
                 int hashCode = StamHashFunction(uri);
                 if(format == DocumentFormat.TXT)
                 {
                     String string1 = convertTXTToString(bytesArray);
                     DocumentImpl newDoc = new DocumentImpl(uri, string1, hashCode);
                     int key = hashCode;
-                    if (this.hashTableImpl.put(key, newDoc) == null) {
-                        returningHashCode = 0;
-                    } else {
+                    if (this.hashTableImpl.put(key, newDoc) == null) {returningHashCode = 0;} 
+                    else {
                         returningHashCode = newDoc.thisString.hashCode();    
                     }
-                    //I'm stuck right here. I need to return 0 when i don't have a previous doc at the same uri
-                    //But! the hashtableimpl.put returns a boolean. so i need to create an if-else statement for the state of the boolean and then return an int in either situation.
-                    //However! i'm not able to do .equals or == on a null (which is what I'm required to return if a previous doc doesn't exist in the hashtableimpl)
-                        
-                    //Temporary answer is to place the hashTableImpl put method in an if-else statement
-                    // It seems to be working
-                    
-                    
-                    //FIGURE OUT HOW TO RETURN THE returningHashCode
                 } else if(format == DocumentFormat.PDF)
                 {
                     String string2 = convertPDFISToString(bytesArray);
@@ -77,17 +63,10 @@ public class DocumentStoreImpl implements DocumentStore {
                     } else {
                         returningHashCode = newDoc.thisString.hashCode();    
                     }
-                    //FIGURE OUT HOW TO RETURN THE returningHashCode   
                 }
-        
-                
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                //Figure out how to return different Hashs from here.
-                return returningHashCode; 
-        }
-        
+            } catch (Exception e) {e.printStackTrace();}
+            return returningHashCode; 
+        }  
     }
 
     /**
