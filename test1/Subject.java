@@ -4,11 +4,15 @@ import test1.assignment.Assignment;
 
 public class Subject 
 {
+    String name;
     int credit = 0;
     Assignment[] allAssignments = new Assignment[5];
     double totalGrade = 0.0;
 
-    public Subject(){}
+    public Subject(String name)
+    {
+        this.name = name;
+    }
     public void setCredit(int credit)
     {
         this.credit = credit;

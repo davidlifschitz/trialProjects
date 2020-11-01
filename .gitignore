@@ -348,3 +348,13 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+.DS_Store
+.vscode/launch.json
+DataStructures/.vscode/launch.json
+DataStructures/.vscode/settings.json
+Betting Statistic Runners/Roulette Calculation/.vscode/launch.json
+sefaria screenshots of wordles/breisheit1.png
+sefaria screenshots of wordles/breisheit2.png
+sefaria screenshots of wordles/storyofDinahBreisheit34.jpg
+makePom/projectFolder/lib/SecretAlgorithms-1.0.jar
+DataStructures/project/Spring-2020-Project-Requirements.pdf
